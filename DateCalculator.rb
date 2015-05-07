@@ -1,20 +1,20 @@
 class DateCalculator
 
-  def self.convert(d) # static method. not good!
-    y = 1980
-    while (d > 365) do
-      if (y % 400 == 0 ||
-          (y % 4 == 0 && y % 100 != 0))
-        if (d > 366)
-          d -= 366
-          y += 1
+  def self.convert(days) # static method. not good!
+    year = 1980
+    while (days > 365) do
+      if (year % 400 == 0 ||
+          (year % 4 == 0 && year % 100 != 0))
+        if (days > 366)
+          days -= 366
+          year += 1
         end
       else
-        d -= 365
-        y += 1
+        days -= 365
+        year += 1
       end
     end
-    return y
+    return year
   end
 
 end
