@@ -11,14 +11,14 @@ class DateCalculator
   end
 
   def add_leap_year
-    if @days > 366
+    if @days >= 366
       @days -= 366
       @year += 1
     end
   end
 
   def add_regular_year
-    if @days > 365
+    if @days >= 365
       @days -= 365
       @year += 1
     end
@@ -31,6 +31,10 @@ class DateCalculator
       else
         add_regular_year
       end
+    end
+    if @days == 365 and (not leap_year?)
+      @days = 0
+      @year += 1
     end
     return @year
   end
